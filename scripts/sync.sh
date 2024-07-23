@@ -16,7 +16,7 @@ telegram_message() {
 
 # Clone the Sync Repo
 git clone $FOX_SYNC
-cd sync
+cd sync/legacy
 
 # Setup Branch names
 if [ "$FOX_BRANCH" = "fox_12.0" ]; then
@@ -33,7 +33,7 @@ if [ -z "$SYNC_BRANCH" ]; then
 fi
 
 # Sync the Sources
-bash orangefox_sync.sh --branch $SYNC_BRANCH --path $SYNC_PATH || { echo "ERROR: Failed to Sync OrangeFox Sources!" && exit 1; }
+bash orangefox_sync_legacy.sh --branch $SYNC_BRANCH --path $SYNC_PATH || { echo "ERROR: Failed to Sync OrangeFox Sources!" && exit 1; }
 
 # Change to the Source Directory
 cd $SYNC_PATH
